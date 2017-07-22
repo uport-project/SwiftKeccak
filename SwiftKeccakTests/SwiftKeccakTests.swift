@@ -22,15 +22,10 @@ class SwiftKeccakTests: XCTestCase {
     }
     
     func testExample() {
+        let digest : Data = keccak256(data:"hello".data(using: String.Encoding.utf8)!)
+        XCTAssertEqual(digest.base64EncodedString(), "HIr/lQaFwu1LwxdPNHIoe1bZUXuclIEnMZoJp6Nt6sg=")
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
     }
     
 }
