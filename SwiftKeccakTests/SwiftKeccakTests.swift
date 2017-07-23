@@ -21,11 +21,24 @@ class SwiftKeccakTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        let digest : Data = keccak256("hello")
+    func testKeccak256OnData() {
+        let digest : Data = keccak256("hello".data(using: String.Encoding.utf8)!)
         XCTAssertEqual(digest.base64EncodedString(), "HIr/lQaFwu1LwxdPNHIoe1bZUXuclIEnMZoJp6Nt6sg=")
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
     
+    func testKeccak256OnString() {
+        let digest : Data = keccak256("hello")
+        XCTAssertEqual(digest.base64EncodedString(), "HIr/lQaFwu1LwxdPNHIoe1bZUXuclIEnMZoJp6Nt6sg=")
+    }
+
+    func testKeccakDataExtension() {
+        let digest : Data = "hello".data(using: String.Encoding.utf8)!.keccak()
+        XCTAssertEqual(digest.base64EncodedString(), "HIr/lQaFwu1LwxdPNHIoe1bZUXuclIEnMZoJp6Nt6sg=")
+    }
+    
+    func testKeccakStringExtension() {
+        let digest : Data = "hello".keccak()
+        XCTAssertEqual(digest.base64EncodedString(), "HIr/lQaFwu1LwxdPNHIoe1bZUXuclIEnMZoJp6Nt6sg=")
+    }
+
 }

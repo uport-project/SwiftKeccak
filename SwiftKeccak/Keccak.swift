@@ -20,3 +20,15 @@ func keccak256(_ data: Data) -> Data {
 func keccak256(_ string: String) -> Data {
     return keccak256(string.data(using: String.Encoding.utf8)!)
 }
+
+extension Data {
+    func keccak() -> Data {
+        return keccak256(self)
+    }
+}
+
+extension String {
+    func keccak() -> Data {
+        return keccak256(self)
+    }
+}
