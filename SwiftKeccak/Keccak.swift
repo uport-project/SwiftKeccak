@@ -9,7 +9,7 @@
 import Foundation
 import keccaktiny
 
-func keccak256(_ data: Data) -> Data {
+public func keccak256(_ data: Data) -> Data {
     let nsData = data as NSData
     let input = nsData.bytes.bindMemory(to: UInt8.self, capacity: data.count)
     let result = UnsafeMutablePointer<UInt8>.allocate(capacity: 32)
@@ -17,18 +17,18 @@ func keccak256(_ data: Data) -> Data {
     return Data(bytes: result, count: 32)
 }
 
-func keccak256(_ string: String) -> Data {
+public func keccak256(_ string: String) -> Data {
     return keccak256(string.data(using: String.Encoding.utf8)!)
 }
 
-extension Data {
-    func keccak() -> Data {
+public extension Data {
+    public func keccak() -> Data {
         return keccak256(self)
     }
 }
 
-extension String {
-    func keccak() -> Data {
+public extension String {
+    public func keccak() -> Data {
         return keccak256(self)
     }
 }
