@@ -16,15 +16,15 @@
 #define decshake(bits) \
 int shake##bits(uint8_t*, size_t, const uint8_t*, size_t);
 
-#define decsha3(bits) \
-int sha3_##bits(uint8_t*, size_t, const uint8_t*, size_t);
+#define deckeccak(bits) \
+int keccak_##bits(uint8_t*, size_t, const uint8_t*, size_t);
 
 decshake(128)
 decshake(256)
-decsha3(224)
-decsha3(256)
-decsha3(384)
-decsha3(512)
+deckeccak(224)
+deckeccak(256)
+deckeccak(384)
+deckeccak(512)
 
 /******** The Keccak-f[1600] permutation ********/
 
@@ -151,13 +151,8 @@ static inline int hash(uint8_t* out, size_t outlen,
 }
 
 /*** Helper macros to define SHA3 and SHAKE instances. ***/
-#define defshake(bits)                                            \
-int shake##bits(uint8_t* out, size_t outlen,                    \
-const uint8_t* in, size_t inlen) {              \
-return hash(out, outlen, in, inlen, 200 - (bits / 4), 0x1f);  \
-}
-#define defsha3(bits)                                             \
-int sha3_##bits(uint8_t* out, size_t outlen,                    \
+#define defkeccak(bits)                                             \
+int keccak_##bits(uint8_t* out, size_t outlen,                    \
 const uint8_t* in, size_t inlen) {              \
 if (outlen > (bits/8)) {                                      \
 return -1;                                                  \
@@ -165,12 +160,8 @@ return -1;                                                  \
 return hash(out, outlen, in, inlen, 200 - (bits / 4), 0x01);  \
 }
 
-/*** FIPS202 SHAKE VOFs ***/
-defshake(128)
-defshake(256)
-
 /*** FIPS202 SHA3 FOFs ***/
-defsha3(224)
-defsha3(256)
-defsha3(384)
-defsha3(512)
+defkeccak(224)
+defkeccak(256)
+defkeccak(384)
+defkeccak(512)
