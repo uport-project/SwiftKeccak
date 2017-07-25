@@ -41,4 +41,24 @@ class SwiftKeccakTests: XCTestCase {
         XCTAssertEqual(digest.base64EncodedString(), "HIr/lQaFwu1LwxdPNHIoe1bZUXuclIEnMZoJp6Nt6sg=")
     }
 
+    func testSha3FinalOnData() {
+        let digest : Data = sha3Final256("hello".data(using: String.Encoding.utf8)!)
+        XCTAssertEqual(digest.base64EncodedString(), "Mzi+aU9QxfM4gUmGzfBoZFOoiLhPQk15KvS5ICOY85I=")
+    }
+    
+    func testSha3FinalOnString() {
+        let digest : Data = sha3Final256("hello")
+        XCTAssertEqual(digest.base64EncodedString(), "Mzi+aU9QxfM4gUmGzfBoZFOoiLhPQk15KvS5ICOY85I=")
+    }
+    
+    func testSha3FinalDataExtension() {
+        let digest : Data = "hello".data(using: String.Encoding.utf8)!.sha3Final()
+        XCTAssertEqual(digest.base64EncodedString(), "Mzi+aU9QxfM4gUmGzfBoZFOoiLhPQk15KvS5ICOY85I=")
+    }
+    
+    func testSha3FinalStringExtension() {
+        let digest : Data = "hello".sha3Final()
+        XCTAssertEqual(digest.base64EncodedString(), "Mzi+aU9QxfM4gUmGzfBoZFOoiLhPQk15KvS5ICOY85I=")
+    }
+
 }

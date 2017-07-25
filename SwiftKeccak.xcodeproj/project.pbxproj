@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		644A09A01F27B9C4008E1389 /* sha3tiny in Resources */ = {isa = PBXBuildFile; fileRef = 644A099F1F27B9C4008E1389 /* sha3tiny */; };
+		644A09A21F27BA33008E1389 /* keccak-tiny.c in Sources */ = {isa = PBXBuildFile; fileRef = 644A09A11F27BA33008E1389 /* keccak-tiny.c */; };
 		64BCE3B11F23C43A00DA62CB /* keccaktiny in Resources */ = {isa = PBXBuildFile; fileRef = 64BCE3B01F23C43A00DA62CB /* keccaktiny */; };
 		64BCE3B31F23C4EB00DA62CB /* Keccak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BCE3B21F23C4EB00DA62CB /* Keccak.swift */; };
 		64BCE3B61F24094100DA62CB /* keccak-tiny.c in Sources */ = {isa = PBXBuildFile; fileRef = 64BCE3B51F24094100DA62CB /* keccak-tiny.c */; };
@@ -26,6 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		644A099F1F27B9C4008E1389 /* sha3tiny */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sha3tiny; sourceTree = "<group>"; };
+		644A09A11F27BA33008E1389 /* keccak-tiny.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = "keccak-tiny.c"; path = "SwiftKeccak/sha3tiny/keccak-tiny.c"; sourceTree = "<group>"; };
 		64BCE3B01F23C43A00DA62CB /* keccaktiny */ = {isa = PBXFileReference; lastKnownFileType = folder; path = keccaktiny; sourceTree = "<group>"; };
 		64BCE3B21F23C4EB00DA62CB /* Keccak.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keccak.swift; sourceTree = "<group>"; };
 		64BCE3B51F24094100DA62CB /* keccak-tiny.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = "keccak-tiny.c"; path = "SwiftKeccak/keccaktiny/keccak-tiny.c"; sourceTree = "<group>"; };
@@ -59,6 +63,7 @@
 		64BF75281F1FC45C00DBBADF = {
 			isa = PBXGroup;
 			children = (
+				644A09A11F27BA33008E1389 /* keccak-tiny.c */,
 				64BCE3B51F24094100DA62CB /* keccak-tiny.c */,
 				64BF75341F1FC45C00DBBADF /* SwiftKeccak */,
 				64BF753F1F1FC45D00DBBADF /* SwiftKeccakTests */,
@@ -78,6 +83,7 @@
 		64BF75341F1FC45C00DBBADF /* SwiftKeccak */ = {
 			isa = PBXGroup;
 			children = (
+				644A099F1F27B9C4008E1389 /* sha3tiny */,
 				64BCE3B01F23C43A00DA62CB /* keccaktiny */,
 				64BF75351F1FC45C00DBBADF /* SwiftKeccak.h */,
 				64BF75361F1FC45C00DBBADF /* Info.plist */,
@@ -192,6 +198,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				64BCE3B11F23C43A00DA62CB /* keccaktiny in Resources */,
+				644A09A01F27B9C4008E1389 /* sha3tiny in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,6 +216,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				644A09A21F27BA33008E1389 /* keccak-tiny.c in Sources */,
 				64BCE3B61F24094100DA62CB /* keccak-tiny.c in Sources */,
 				64BCE3B31F23C4EB00DA62CB /* Keccak.swift in Sources */,
 			);
@@ -350,7 +358,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = me.uport.ios.keccak.SwiftKeccak;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_INCLUDE_PATHS = "${SRCROOT}/SwiftKeccak/keccaktiny/**";
+				SWIFT_INCLUDE_PATHS = "${SRCROOT}/SwiftKeccak/keccaktiny/** ${SRCROOT}/SwiftKeccak/sha3tiny/**";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
@@ -372,7 +380,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = me.uport.ios.keccak.SwiftKeccak;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_INCLUDE_PATHS = "${SRCROOT}/SwiftKeccak/keccaktiny/**";
+				SWIFT_INCLUDE_PATHS = "${SRCROOT}/SwiftKeccak/keccaktiny/** ${SRCROOT}/SwiftKeccak/sha3tiny/**";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
